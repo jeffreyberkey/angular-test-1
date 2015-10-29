@@ -26,3 +26,15 @@
   <tt>color = {{color.name | json}}</tt><br/>
  </form>
  Note that `ng-value="specialValue"` sets radio item's value to be the value of `$scope.specialValue`.
+ 
+ <script>
+   it('should change state', function() {
+  var color = element(by.binding('color.name'));
+
+  expect(color.getText()).toContain('blue');
+
+  element.all(by.model('color.name')).get(0).click();
+
+  expect(color.getText()).toContain('red');
+});
+ </script>
